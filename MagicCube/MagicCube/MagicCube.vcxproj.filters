@@ -21,5 +21,13 @@
     <ClInclude Include="MagicCube.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CubeColor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Cube.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

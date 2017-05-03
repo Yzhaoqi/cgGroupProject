@@ -20,7 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="CubeColor.h" />
     <ClInclude Include="MagicCube.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Cube.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4B292F1B-5943-4B4D-8C38-DD535799D840}</ProjectGuid>
