@@ -109,7 +109,7 @@ private:
 	glm::vec3 vertex[8];//vertex coordinates
 
 	float center[3]; //Cube cneter
-	float lenght; //Cube Lenght
+	float length; //Cube Lenght
 
 	int order; //Cube Order
 

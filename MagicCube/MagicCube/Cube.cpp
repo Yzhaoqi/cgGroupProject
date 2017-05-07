@@ -7,7 +7,7 @@ Cube::Cube(position _pos, CubeColor _cubeColor) : Cube(_pos, _cubeColor, 3) {}
 Cube::Cube(position _pos, CubeColor _cubeColor, int _order) : pos(_pos), cubeColor(_cubeColor), order(_order)
 {
 	//边长
-	lenght = 1;
+	length = 1;
 
 	posLocalToWorld(pos, center[0], center[1], center[2]);
 
@@ -21,7 +21,7 @@ Cube::Cube(position _pos, CubeColor _cubeColor, int _order) : pos(_pos), cubeCol
 	//5: right-top-front
 	//6: right-bottom-front
 	//7: right-bottom-back
-	float lenHalf = lenght / 2;
+	float lenHalf = length / 2;
 	//x
 	v[0][0] = v[1][0] = v[2][0] = v[3][0] = center[0] - lenHalf;
 	v[4][0] = v[5][0] = v[6][0] = v[7][0] = center[0] + lenHalf;
@@ -39,7 +39,7 @@ Cube::Cube(position _pos, CubeColor _cubeColor, int _order) : pos(_pos), cubeCol
 
 void Cube::setLocation(position _pos)
 {
-	translate((_pos.x - pos.x) * lenght, (_pos.y - pos.y) * lenght, (_pos.z - pos.z) * lenght);
+	translate((_pos.x - pos.x) * length, (_pos.y - pos.y) * length, (_pos.z - pos.z) * length);
 
 	pos = _pos;
 
@@ -115,6 +115,13 @@ void Cube::rotateCube(const int axis, const int direction)
 	}
 
 	rotate(angle, axis_x, axis_y, axis_z);
+	int half = order / 2;
+	float d = half * length;
+	glm::vec3 v = glm::rotate(glm::vec3(pos.x - d, pos.y - d, pos.z - d), (float)(angle / 180 * M_PI), glm::vec3(axis_x, axis_y, axis_z));
+	//四舍五入
+	pos.x = (int)(v.x + d + 0.5);
+	pos.y = (int)(v.y + d + 0.5);
+	pos.z = (int)(v.z + d + 0.5);
 }
 
 //angle_in_degrees
@@ -137,12 +144,12 @@ void Cube::posLocalToWorld(position p, float & x, float & y, float & z)
 {
 	float pos0[3]; //(0,0,0)的位置
 	if (order % 2 == 0) { //如果是偶数阶
-		pos0[0] = pos0[1] = pos0[2] = 0.0f - (order / 2) * lenght + (float)lenght / 2.0f;
+		pos0[0] = pos0[1] = pos0[2] = 0.0f - (order / 2) * length + (float)length / 2.0f;
 	}
 	else {
-		pos0[0] = pos0[1] = pos0[2] = 0.0f - (order / 2) * lenght;
+		pos0[0] = pos0[1] = pos0[2] = 0.0f - (order / 2) * length;
 	}
-	x = pos0[0] + lenght * pos.x;
-	y = pos0[1] + lenght * pos.y;
-	z = pos0[2] + lenght * pos.z;
+	x = pos0[0] + length * pos.x;
+	y = pos0[1] + length * pos.y;
+	z = pos0[2] + length * pos.z;
 }
