@@ -24,10 +24,28 @@
     <ClInclude Include="CubeColor.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="stdfax.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MagicCubeController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="Cube.cpp">
-      <Filter>头文件</Filter>
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicCube.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicCubeController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
