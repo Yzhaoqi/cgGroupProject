@@ -1,23 +1,17 @@
-﻿  stdafx.cpp
-  main.cpp
-  MagicCubeController.cpp
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccubecontroller.cpp(23): warning C4018: '<': signed/unsigned mismatch
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccubecontroller.cpp(25): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccubecontroller.cpp(28): warning C4018: '<': signed/unsigned mismatch
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccubecontroller.cpp(30): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccubecontroller.cpp(63): warning C4018: '>=': signed/unsigned mismatch
-  MagicCube.cpp
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccube.cpp(23): warning C4018: '<': signed/unsigned mismatch
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccube.cpp(24): warning C4018: '<': signed/unsigned mismatch
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccube.cpp(25): warning C4018: '<': signed/unsigned mismatch
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccube.cpp(49): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccube.cpp(55): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccube.cpp(64): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccube.cpp(82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccube.cpp(83): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\magiccube.cpp(84): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Cube.cpp
-d:\lessons\cg\cggroupproject\magiccube\magiccube\cube.cpp(78): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-  Generating Code...
-  MagicCube.vcxproj -> D:\Lessons\CG\cgGroupProject\MagicCube\Debug\MagicCube.exe
-  MagicCube.vcxproj -> D:\Lessons\CG\cgGroupProject\MagicCube\Debug\MagicCube.pdb (Partial PDB)
+﻿  main.cpp
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(40): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(41): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(49): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(50): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(51): warning C4305: “=”: 从“double”到“float”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(52): warning C4305: “=”: 从“double”到“float”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(53): warning C4305: “-=”: 从“double”到“float”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(54): warning C4305: “+=”: 从“double”到“float”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(57): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(58): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(65): warning C4305: “参数”: 从“double”到“const GLfloat”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(68): warning C4305: “参数”: 从“double”到“const GLfloat”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(71): warning C4305: “参数”: 从“double”到“const GLfloat”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\main.cpp(74): warning C4305: “参数”: 从“double”到“const GLfloat”截断
+  MagicCube.vcxproj -> G:\计算机图形学\cgGroupProject\MagicCube\Debug\MagicCube.exe
+  MagicCube.vcxproj -> G:\计算机图形学\cgGroupProject\MagicCube\Debug\MagicCube.pdb (Partial PDB)

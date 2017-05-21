@@ -13,4 +13,3 @@
 #include <memory>
 #include <GL\freeglut.h>
 #include <map>
-

@@ -1,3 +1,5 @@
-/MagicCube/Debug/*
+/MagicCube/Debug/MagicCube.exe
+/MagicCube/Debug/MagicCube.ilk
+/MagicCube/Debug/MagicCube.pdb
 MagicCube/MagicCube.sdf
 *.suo
