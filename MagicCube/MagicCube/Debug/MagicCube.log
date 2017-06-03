@@ -1,19 +1,7 @@
-﻿  main.cpp
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(41): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(49): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(50): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(51): warning C4305: '=': truncation from 'double' to 'float'
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(52): warning C4305: '=': truncation from 'double' to 'float'
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(53): warning C4305: '-=': truncation from 'double' to 'float'
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(54): warning C4305: '+=': truncation from 'double' to 'float'
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(57): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(58): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(65): warning C4305: 'argument': truncation from 'double' to 'const GLfloat'
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(68): warning C4305: 'argument': truncation from 'double' to 'const GLfloat'
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(71): warning C4305: 'argument': truncation from 'double' to 'const GLfloat'
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(74): warning C4305: 'argument': truncation from 'double' to 'const GLfloat'
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(152): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-d:\lessons\cg\cggroupproject\magiccube\magiccube\main.cpp(152): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-  MagicCube.vcxproj -> D:\Lessons\CG\cgGroupProject\MagicCube\Debug\MagicCube.exe
-  MagicCube.vcxproj -> D:\Lessons\CG\cgGroupProject\MagicCube\Debug\MagicCube.pdb (Partial PDB)
+﻿  Camera.cpp
+g:\计算机图形学\cggroupproject\magiccube\magiccube\camera.cpp(9): warning C4305: “=”: 从“double”到“GLfloat”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\camera.cpp(10): warning C4305: “=”: 从“double”到“GLfloat”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\camera.cpp(41): warning C4305: “=”: 从“double”到“GLfloat”截断
+g:\计算机图形学\cggroupproject\magiccube\magiccube\camera.cpp(43): warning C4305: “=”: 从“double”到“GLfloat”截断
+  MagicCube.vcxproj -> G:\计算机图形学\cgGroupProject\MagicCube\Debug\MagicCube.exe
+  MagicCube.vcxproj -> G:\计算机图形学\cgGroupProject\MagicCube\Debug\MagicCube.pdb (Partial PDB)

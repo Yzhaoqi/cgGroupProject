@@ -2,9 +2,6 @@
 #include "MagicCubeController.h"
 #include "Camera.h"
 
-#define PI 3.141592653589793238462643383279502384197169399375105
-#define MININUM 0.000000000000000001
-
 MagicCubeController mcc;
 Camera camera;
 float mouseX, mouseY;
@@ -12,7 +9,7 @@ float yaw, pitch;
 
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    //camera.activateCamera();
+    camera.activateCamera();
 	mcc.display();
 	glutSwapBuffers();
 }
@@ -43,35 +40,22 @@ void mouse(int button, int state, int x, int y) {
 }
 
 void mouseMotion(int x, int y) {
-    double dx = x - mouseX;
-    double dy = y - mouseY;
-
-    yaw += dx / 1000;
-    pitch += dy / 1000;
-    if (pitch >= PI / 2) pitch = PI / 2 - MININUM;
-    else if (pitch <= -PI / 2) pitch = -PI / 2 + MININUM;
-    if (yaw >= 2 * PI) yaw -= 2 * PI;
-    else if (yaw <= 0) yaw += 2 * PI;
-    camera.rotate(pitch, -yaw);
-
-    mouseX = x;
-    mouseY = y;
 }
 
 void keyboard(unsigned char key, int x, int y) {
 	if (mcc.controlState == MagicCubeController::IDLE) {
         switch (key) {
         case 'w':
-            camera.move(MOVE_FORWARD, 0.01);
+            camera.move(0, -0.1);
             break;
         case 's':
-            camera.move(MOVE_BACK, 0.01);
+            camera.move(0, 0.1);
             break;
         case 'a':
-            camera.move(MOVE_LEFT, 0.01);
+            camera.move(-0.1, 0);
             break;
         case 'd':
-            camera.move(MOVE_RIGHT, 0.01);
+            camera.move(0.1, 0);
             break;
         }
 	}
