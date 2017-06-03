@@ -27,6 +27,8 @@ private:
 		{ 1, 0, 1 },//magenta -- front
 		{ 0, 1, 1 } //cyan -- back
 	};
+
+	glm::vec3 normals[6];
 	glm::vec3 center; //Cube cneter
 	
 };

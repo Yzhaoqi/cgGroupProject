@@ -38,15 +38,27 @@ Cube::Cube(GLfloat x, GLfloat y, GLfloat z) : center{ x, y, z } {
 	for (int i = 0; i < 8; i++) {
 		vertex[i] = glm::make_vec3(v[i]);
 	}
+
+	normals[0] = glm::vec3(-1, 0, 0);
+	normals[1] = glm::vec3(0, -1, 0);
+	normals[2] = glm::vec3(1, 0, 0);
+	normals[3] = glm::vec3(0, 1, 0);
+	normals[4] = glm::vec3(0, 0, 1);
+	normals[5] = glm::vec3(0, 0, -1);
 }
 
 void Cube::display() {
 	glBegin(GL_QUADS);
 	for (int i = 0; i < 6; i++) {
 		glColor3fv(colors[i]);
+		//glColor3f(1.0f, 1.0f, 1.0f);
+		glNormal3fv(glm::value_ptr(normals[i]));
 		glVertex3fv(glm::value_ptr(vertex[faces[i][0]]));
+		glNormal3fv(glm::value_ptr(normals[i]));
 		glVertex3fv(glm::value_ptr(vertex[faces[i][1]]));
+		glNormal3fv(glm::value_ptr(normals[i]));
 		glVertex3fv(glm::value_ptr(vertex[faces[i][2]]));
+		glNormal3fv(glm::value_ptr(normals[i]));
 		glVertex3fv(glm::value_ptr(vertex[faces[i][3]]));
 	}
 	glEnd();
@@ -76,8 +88,15 @@ void Cube::highlightDisplay(const GLfloat* color) {
 void Cube::rotate(GLfloat angle, GLfloat x, GLfloat y, GLfloat z)
 {
 	GLfloat angle_ = angle / 180 * M_PI;
+	glm::mat4 rotationMatrix = glm::rotate(angle_, glm::vec3(x, y, z));
 	for (auto& v : vertex) {
-		v = glm::rotate(v, angle_, glm::vec3(x, y, z));
+	//	v = glm::rotate(v, angle_, glm::vec3(x, y, z));
+		v = glm::vec3(rotationMatrix * glm::vec4(v, 1.0f));
 	}
 	center = glm::rotate(center, angle_, glm::vec3(x, y, z));
+
+	glm::mat4 normalMatrix = glm::transpose(glm::inverse(rotationMatrix));
+	for (size_t i = 0; i < 6; i++) {
+		normals[i] = glm::vec3(rotationMatrix * glm::vec4(normals[i], 1.0f));
+	}
 }

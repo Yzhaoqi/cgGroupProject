@@ -12,7 +12,7 @@ float yaw, pitch;
 
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    camera.activateCamera();
+    //camera.activateCamera();
 	mcc.display();
 	glutSwapBuffers();
 }
@@ -146,6 +146,26 @@ void addMenu() {
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
 
+void initLight() {
+	glEnable(GL_LIGHTING);
+	GLfloat light_position[] = { 5.0f, 5.0f, 5.0f, 1.0 };
+	GLfloat light_ambient[] = { 0.3, 0.3, 0.3, 1.0 };
+	GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+
+	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+	glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+	//glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+	//glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+
+	glEnable(GL_LIGHT0);
+
+	glLightfv(GL_LIGHT1, GL_POSITION, light_position);
+	glEnable(GL_LIGHT1);
+
+	glEnable(GL_COLOR_MATERIAL);
+}
+
 int main(int argc, char* argv) {
     camera.initialCamera();
     pitch = yaw = 0;
@@ -153,10 +173,13 @@ int main(int argc, char* argv) {
 	glutInit(&argc, &argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
 
+	
 	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(500, 500);
 	glutCreateWindow("MagicalCube");
+	initLight();
 	glEnable(GL_DEPTH_TEST);
+	
 
 	glutDisplayFunc(display);
     glutMouseFunc(mouse);
