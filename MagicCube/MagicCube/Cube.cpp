@@ -1,5 +1,7 @@
 #include "Cube.h"
 
+extern GLuint textureID;
+
 GLint const Cube::faces[6][4] = {
 	{ 0, 1, 2, 3 },//left
 	{ 3, 2, 6, 7 },//bottom
@@ -48,19 +50,70 @@ Cube::Cube(GLfloat x, GLfloat y, GLfloat z) : center{ x, y, z } {
 }
 
 void Cube::display() {
+	glBindTexture(GL_TEXTURE_2D, textureID);
+
 	glBegin(GL_QUADS);
-	for (int i = 0; i < 6; i++) {
-		glColor3fv(colors[i]);
-		//glColor3f(1.0f, 1.0f, 1.0f);
-		glNormal3fv(glm::value_ptr(normals[i]));
-		glVertex3fv(glm::value_ptr(vertex[faces[i][0]]));
-		glNormal3fv(glm::value_ptr(normals[i]));
-		glVertex3fv(glm::value_ptr(vertex[faces[i][1]]));
-		glNormal3fv(glm::value_ptr(normals[i]));
-		glVertex3fv(glm::value_ptr(vertex[faces[i][2]]));
-		glNormal3fv(glm::value_ptr(normals[i]));
-		glVertex3fv(glm::value_ptr(vertex[faces[i][3]]));
-	}
+	//glColor3fv(colors[i]);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glNormal3fv(glm::value_ptr(normals[0]));
+	glTexCoord2f(0.0, 1.0f / 3);	
+	glVertex3fv(glm::value_ptr(vertex[faces[0][0]]));
+	glTexCoord2f(0.0, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[0][1]]));
+	glTexCoord2f(0.25, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[0][2]]));
+	glTexCoord2f(0.25, 1.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[0][3]]));
+
+	glNormal3fv(glm::value_ptr(normals[1]));
+	glTexCoord2f(0.25, 1.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[1][0]]));
+	glTexCoord2f(0.25, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[1][1]]));
+	glTexCoord2f(0.5, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[1][2]]));
+	glTexCoord2f(0.5, 1.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[1][3]]));
+
+	glNormal3fv(glm::value_ptr(normals[2]));
+	glTexCoord2f(0.5, 1.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[2][0]]));
+	glTexCoord2f(0.5, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[2][1]]));
+	glTexCoord2f(0.75, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[2][2]]));
+	glTexCoord2f(0.75, 1.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[2][3]]));
+
+	glNormal3fv(glm::value_ptr(normals[3]));
+	glTexCoord2f(0.75, 1.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[3][0]]));
+	glTexCoord2f(0.75, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[3][1]]));
+	glTexCoord2f(1, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[3][2]]));
+	glTexCoord2f(1, 1.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[3][3]]));
+
+	glNormal3fv(glm::value_ptr(normals[4]));
+	glTexCoord2f(0.5, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[4][0]]));
+	glTexCoord2f(0.5, 1);
+	glVertex3fv(glm::value_ptr(vertex[faces[4][1]]));
+	glTexCoord2f(0.75, 1);
+	glVertex3fv(glm::value_ptr(vertex[faces[4][2]]));
+	glTexCoord2f(0.75, 2.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[4][3]]));
+
+	glNormal3fv(glm::value_ptr(normals[5]));
+	glTexCoord2f(0.5, 0);
+	glVertex3fv(glm::value_ptr(vertex[faces[5][0]]));
+	glTexCoord2f(0.5, 1.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[5][1]]));
+	glTexCoord2f(0.75, 1.0f / 3);
+	glVertex3fv(glm::value_ptr(vertex[faces[5][2]]));
+	glTexCoord2f(0.75, 0);
+	glVertex3fv(glm::value_ptr(vertex[faces[5][3]]));
 	glEnd();
 }
 
