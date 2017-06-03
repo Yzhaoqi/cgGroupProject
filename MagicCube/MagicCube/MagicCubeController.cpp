@@ -50,10 +50,10 @@ bool MagicCubeController::isArrivedDestination() {
 	}
 }
 
-void MagicCubeController::display() {
+void MagicCubeController::display(bool is_texture_on) {
 	//the drawing order is important
 	//first
-	magicalCube.display();
+	magicalCube.display(is_texture_on);
 	magicalCube.highlightDisplay(currentFace);
 	//last
 }

@@ -4,8 +4,7 @@
 
 #define ROUND(a) (int)((a) + 0.5)
 
-class MagicCube
-{
+class MagicCube {
 	friend class MagicCubeController;
 public:
 	//gap between cubes
@@ -15,8 +14,8 @@ public:
 	MagicCube(int _order); //order ÊÇ½×
 
 	//display all faces
-	void display();
-	void display(int face);
+	void display(bool is_texture_on);
+	void display(int face, bool is_texture_on);
 	void highlightDisplay(int face);
 	
 

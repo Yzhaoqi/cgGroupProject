@@ -24,6 +24,7 @@
     <ClInclude Include="CubeColor.h" />
     <ClInclude Include="MagicCube.h" />
     <ClInclude Include="MagicCubeController.h" />
+    <ClInclude Include="SOIL.h" />
     <ClInclude Include="stdfax.h" />
   </ItemGroup>
   <ItemGroup>

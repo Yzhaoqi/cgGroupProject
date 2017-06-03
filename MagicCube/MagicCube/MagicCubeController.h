@@ -17,7 +17,7 @@ public:
 	//If arrived, please call endRotation()
 	bool isArrivedDestination();
 	//To display in the window
-	void display();
+	void display(bool is_texture_on);
 	
 	//change currentFace in many ways...
 	void changeCurFace(int face);

@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-﻿  Camera.cpp
-g:\计算机图形学\cggroupproject\magiccube\magiccube\camera.cpp(9): warning C4305: “=”: 从“double”到“GLfloat”截断
-g:\计算机图形学\cggroupproject\magiccube\magiccube\camera.cpp(10): warning C4305: “=”: 从“double”到“GLfloat”截断
-g:\计算机图形学\cggroupproject\magiccube\magiccube\camera.cpp(41): warning C4305: “=”: 从“double”到“GLfloat”截断
-g:\计算机图形学\cggroupproject\magiccube\magiccube\camera.cpp(43): warning C4305: “=”: 从“double”到“GLfloat”截断
+﻿  Cube.cpp
+g:\计算机图形学\cggroupproject\magiccube\magiccube\cube.cpp(100): warning C4244: “初始化”: 从“double”转换到“GLfloat”，可能丢失数据
   MagicCube.vcxproj -> G:\计算机图形学\cgGroupProject\MagicCube\Debug\MagicCube.exe
   MagicCube.vcxproj -> G:\计算机图形学\cgGroupProject\MagicCube\Debug\MagicCube.pdb (Partial PDB)
-=======
-﻿  Cube.cpp
-d:\lessons\cg\cggroupproject\magiccube\magiccube\cube.cpp(159): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-  MagicCube.vcxproj -> D:\Lessons\CG\cgGroupProject\MagicCube\Debug\MagicCube.exe
-  MagicCube.vcxproj -> D:\Lessons\CG\cgGroupProject\MagicCube\Debug\MagicCube.pdb (Partial PDB)
->>>>>>> origin/dev

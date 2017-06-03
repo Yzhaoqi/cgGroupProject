@@ -3,23 +3,19 @@
 #include "Camera.h"
 #include "SOIL.h"
 
-<<<<<<< HEAD
-=======
-#define PI 3.141592653589793238462643383279502384197169399375105
-#define MININUM 0.000000000000000001
-
 GLuint textureID;
 
->>>>>>> origin/dev
 MagicCubeController mcc;
 Camera camera;
 float mouseX, mouseY;
 float yaw, pitch;
 
+bool toggle_texture;
+
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     camera.activateCamera();
-	mcc.display();
+	mcc.display(toggle_texture);
 	glutSwapBuffers();
 }
 
@@ -65,6 +61,9 @@ void keyboard(unsigned char key, int x, int y) {
             break;
         case 'd':
             camera.move(0.1, 0);
+            break;
+        case 't':
+            toggle_texture = !toggle_texture;
             break;
         }
 	}
@@ -140,20 +139,25 @@ void addMenu() {
 }
 
 void initLight() {
-	glEnable(GL_LIGHTING);
-	GLfloat light_position[] = { 5.0f, 5.0f, 5.0f, 1.0 };
+    glEnable(GL_LIGHTING);
+    glLoadIdentity();
+	GLfloat light_position[] = { -5.0f, 5.0f, -5.0f, 1.0 };
+    GLfloat light1_position[] = {5.0f, 5.0f, 5.0f, 1.0 };
 	GLfloat light_ambient[] = { 0.3, 0.3, 0.3, 1.0 };
 	GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 
 	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
-	//glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
-	//glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
-
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+	glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+    
 	glEnable(GL_LIGHT0);
 
-	glLightfv(GL_LIGHT1, GL_POSITION, light_position);
+	glLightfv(GL_LIGHT1, GL_POSITION, light1_position);
+    glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
 	glEnable(GL_LIGHT1);
 
 	glEnable(GL_COLOR_MATERIAL);
@@ -188,18 +192,20 @@ GLuint textureFromFile(std::string path) {
 int main(int argc, char* argv) {
     camera.initialCamera();
     pitch = yaw = 0;
+    toggle_texture = false;
 
 	glutInit(&argc, &argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
-
 	
 	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(500, 500);
 	glutCreateWindow("MagicalCube");
-	initLight();
+	
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
 	textureID = textureFromFile("awesomeface1.png");
+
+    initLight();
 
 	glutDisplayFunc(display);
     glutMouseFunc(mouse);
@@ -208,7 +214,7 @@ int main(int argc, char* argv) {
 	glutIdleFunc(idle);
 	glutReshapeFunc(reshape);
 	glutSpecialFunc(specialKeyboard);
-	
+    
 	addMenu();
 
 	glutMainLoop();

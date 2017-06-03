@@ -17,21 +17,16 @@ void Camera::activateCamera() {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(-5, 5, -5, 5, 0.1, 100);
-    if (is_active) {
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-        gluLookAt(
-            cameraPosX, cameraPosY, cameraPosZ,
-            0, 0, 0,
-            UpX, UpY, UpZ
-        );
-    } else {
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-        gluLookAt(5, 5, 5,
-            0, 0, 0,
-            0.0, 1.0, 0.0);
+    if (!is_active) {
+        initialCamera();
     }
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    gluLookAt(
+        cameraPosX, cameraPosY, cameraPosZ,
+        0, 0, 0,
+        UpX, UpY, UpZ
+    );
 }
 
 void Camera::move(GLfloat a, GLfloat t) {
@@ -61,20 +56,5 @@ void Camera::calculatePos() {
     cameraPosY = radio*sin(theta);
     UpX = UpZ = 0;
     UpY = 1;
-    //UpX = cos(theta)*cos(alpha);
-    //UpZ = cos(theta)*sin(alpha);
-    //if (cameraPosY == 0) {
-    //    UpY = 1;
-    //} else if (cos(theta) == 0) {
-    //    UpY = 0;
-    //    UpX = -cos(alpha);
-    //    UpZ = sin(alpha);
-    //} else if (cameraPosY < 0) {
-    //    UpX = -UpX;
-    //    UpZ = -UpZ;
-    //    UpY = (UpX * UpX + UpZ * UpZ) / sin(theta);
-    //} else {
-    //    UpY = (UpX * UpX + UpZ * UpZ) / (-sin(theta));
-    //}
 }
 

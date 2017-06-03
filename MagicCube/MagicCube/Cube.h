@@ -7,7 +7,7 @@ class Cube
 public:
 	Cube();
 	Cube(GLfloat x, GLfloat y, GLfloat z); //center location
-	void display(); //use in the glut display function
+	void display(bool is_texture_on); //use in the glut display function
 	void highlightDisplay(const GLfloat* color);
 	void rotate(GLfloat angle, GLfloat x, GLfloat y, GLfloat z); //Like glRoatef
 

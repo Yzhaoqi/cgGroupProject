@@ -38,15 +38,15 @@ MagicCube::MagicCube(int _order) {
 
 }
 
-void MagicCube::display() {
+void MagicCube::display(bool is_texture_on) {
 	for (auto &c : cubes) {
-		c.display();
+		c.display(is_texture_on);
 	}
 }
 
-void MagicCube::display(int face) {
+void MagicCube::display(int face, bool is_texture_on) {
 	for (auto &p : faceToPositions.at(face)) {
-		cubes.at(positionToIndex.at(p.x).at(p.y).at(p.z)).display();
+		cubes.at(positionToIndex.at(p.x).at(p.y).at(p.z)).display(is_texture_on);
 	}
 }
 
