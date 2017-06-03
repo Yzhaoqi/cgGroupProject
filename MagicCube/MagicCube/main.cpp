@@ -1,9 +1,12 @@
 #include "stdfax.h"
 #include "MagicCubeController.h"
 #include "Camera.h"
+#include "SOIL.h"
 
 #define PI 3.141592653589793238462643383279502384197169399375105
 #define MININUM 0.000000000000000001
+
+GLuint textureID;
 
 MagicCubeController mcc;
 Camera camera;
@@ -166,6 +169,32 @@ void initLight() {
 	glEnable(GL_COLOR_MATERIAL);
 }
 
+GLuint textureFromFile(std::string path) {
+	//Generate texture ID and load texture data
+	std::string filename = path;
+	GLuint textureID;
+	glGenTextures(1, &textureID);
+	int width, height;
+	unsigned char* image = SOIL_load_image(filename.c_str(), &width, &height, 0, SOIL_LOAD_RGBA);
+	if (image == 0) std::cout << "no";
+	// Assign texture to ID
+	glBindTexture(GL_TEXTURE_2D, textureID);
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+
+	// Parameters
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+	//gluBuild2DMipmaps(GL_TEXTURE_2D, 3, width, height, GL_RGBA, GL_UNSIGNED_BYTE, image);
+	glBindTexture(GL_TEXTURE_2D, 0);
+	SOIL_free_image_data(image);
+
+	return textureID;
+}
+
 int main(int argc, char* argv) {
     camera.initialCamera();
     pitch = yaw = 0;
@@ -179,7 +208,8 @@ int main(int argc, char* argv) {
 	glutCreateWindow("MagicalCube");
 	initLight();
 	glEnable(GL_DEPTH_TEST);
-	
+	glEnable(GL_TEXTURE_2D);
+	textureID = textureFromFile("awesomeface1.png");
 
 	glutDisplayFunc(display);
     glutMouseFunc(mouse);

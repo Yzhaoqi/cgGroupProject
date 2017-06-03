@@ -54,4 +54,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="awesomeface.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="awesomeface1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
