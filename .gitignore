@@ -3,3 +3,5 @@
 /MagicCube/Debug/MagicCube.pdb
 MagicCube/MagicCube.sdf
 *.suo
+*.obj
+MagicCube/MagicCube/Debug/Camera.obj

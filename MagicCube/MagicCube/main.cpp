@@ -2,6 +2,7 @@
 #include "MagicCubeController.h"
 #include "Camera.h"
 #include "SOIL.h"
+#include "SkyBox.h"
 
 GLuint textureID;
 
@@ -10,12 +11,15 @@ Camera camera;
 float mouseX, mouseY;
 float yaw, pitch;
 
+SkyBox skybox;
+
 bool toggle_texture;
 
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     camera.activateCamera();
 	mcc.display(toggle_texture);
+	skybox.display();
 	glutSwapBuffers();
 }
 
